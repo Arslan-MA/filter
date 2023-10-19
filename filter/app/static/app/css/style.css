@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 20px;
+    border-top: 3px solid;
+}
+
+.search {
+    margin: auto;
+    border-top: 3px solid;
+    padding: 20px;
+}
+
+select {
+    margin: 10px;
+}
+
+input {
+    margin: 10px;
+}
+
+.content {
+    margin: auto;
+    border-top: 3px solid;
+    font-size: 18px;
+    padding: 20px;
+}
+
+p {
+    margin: 15px;
+}
+
+.product {
+    margin: 20px;
+    border: 3px solid;
+    padding: 20px;
+}

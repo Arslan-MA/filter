@@ -1,0 +1,68 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+    <h2>Search</h2>
+    <div class="search">
+        <form method="GET">
+            <label>Название товара:</label><br>
+            <input type="text" name="search_query"><br>
+
+            <label>Цена:</label><br>
+            <input type="number" name="min_price" placeholder="Минимальная цена"><br>
+            <input type="number" name="max_price" placeholder="Максимальная цена"><br>
+
+            <label for="available">В наличии:</label><br>
+            <input type="checkbox" name="available" id="available"><br>
+
+            <label for="category">Категория:</label><br>
+            <select name="category" id="category">
+                <option value="">---</option>
+                <option value="лампочка">лампочка</option>
+                <option value="видеокарта">видеокарта</option>
+                <option value="миксер">миксер</option>
+                <option value="процессор">процессор</option>
+                <option value="ОЗУ">ОЗУ</option>
+            </select><br>
+
+            <label for="application_area">Область применения:</label><br>
+            <select name="application_area" id="application_area">
+                <option value="">---</option>
+                <option value="для дома">для дома</option>
+                <option value="для кухни">для кухни</option>
+                <option value="для сада">для сада</option>
+                <option value="техника">техника</option>
+            </select><br>
+
+            <label for="rating">Оценка:</label><br>
+            <select name="rating" id="rating">
+                <option value="">---</option>
+                <option value="0.0">0</option>
+                <option value="1.0">1</option>
+                <option value="2.0">2</option>
+                <option value="3.0">3</option>
+                <option value="4.0">4</option>
+                <option value="5.0">5</option>
+                <option value="6.0">6</option>
+                <option value="7.0">7</option>
+                <option value="8.0">8</option>
+                <option value="9.0">9</option>
+                <option value="10.0">10</option>
+            </select><br>
+            <input type="submit" value="Search">
+        </form>
+    </div>
+    <h2>Products</h2>
+    <div class="content">
+        {% for product in products %}
+            <div class="product">
+                <p>{{ product.name }}</p>
+                <p>{{ product.seller }}</p>
+                <p>{{ product.price }}</p>
+                <p>{{ product.category }}</p>
+                <p>{{ product.application_area }}</p>
+                <p>{{ product.rating }}</p>
+                <a href="{% url 'product_detail' product.pk %}"><button type="button">Detail</button></a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
